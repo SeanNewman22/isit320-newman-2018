@@ -6,3 +6,5 @@ I wrote this on Cloud9
 
 I wrote this in Pristine Lubuntu on Sunday and Friday.
 
+This is my commit on Pristine for merge conflict.
+
