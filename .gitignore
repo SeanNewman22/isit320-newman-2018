@@ -63,3 +63,8 @@ typings/
 
 # next.js build output
 .next
+.metadata
+.expo
+platforms
+Thumbs.db
+*.zip
