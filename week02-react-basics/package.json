@@ -1,0 +1,23 @@
+{
+  "name": "week02-react-basics",
+  "version": "1.0.0",
+  "description": "Learn react fundamentals",
+  "main": "npm start",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeanNewman22/isit320-newman-2018.git"
+  },
+  "keywords": [
+    "react",
+    "systemd"
+  ],
+  "author": "Sean Newman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SeanNewman22/isit320-newman-2018/issues"
+  },
+  "homepage": "https://github.com/SeanNewman22/isit320-newman-2018#readme"
+}
