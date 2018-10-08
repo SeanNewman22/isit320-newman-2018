@@ -28,7 +28,7 @@ var instanceParams = {
     ],
     ImageId: 'ami-0ac019f4fcb7cb7e6',
     InstanceType: 't2.micro',
-    KeyName: 'ec2key',
+    KeyName: 'ec2-320-inclass',
     SecurityGroupIds: ['sg-0a7665a646c43c62d'],
     MinCount: 1,
     MaxCount: 1
