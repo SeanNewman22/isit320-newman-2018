@@ -26,6 +26,8 @@ class App extends Component {
                 console.log('parsing failed, URL bad, network down, or similar', ex);
             });
     };
+    
+    
 
     render() {
         return (
