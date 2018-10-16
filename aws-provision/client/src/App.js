@@ -50,7 +50,13 @@ class App extends Component {
                     state: {this.state.status} file: {this.state.file}
                 </p>
                 <button onClick={this.queryServer}>Bar</button>
-                <button onClick={this.createEducate}>Create Educate</button>
+                <button onClick={this.createEducate}>Create with AWS Educate Account</button>
+                <button onClick={this.createEducate}>Create with AWS Standard Account</button>
+                <button onClick={this.createEducate}>Associate Elastic Ip</button>
+                <hr/>
+                <button onClick={this.createEducate}>Copy the GetStarted Script</button>
+                <button onClick={this.createEducate}>Run the GetStarted Script</button>
+                <button onClick={this.createEducate}>Remove from KnownHost</button>
             </div>
         );
     }
