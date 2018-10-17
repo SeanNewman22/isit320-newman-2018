@@ -5,7 +5,7 @@ class App extends Component {
   
   copyFile = () => {
         //const that = this;
-        fetch('/foo')
+        fetch('/script-pusher/foo')
             .then(function(response) {
                 return response.json();
             })
