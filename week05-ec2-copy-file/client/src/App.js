@@ -1,25 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  
+  copyFile = () => {
+        //const that = this;
+        fetch('/script-pusher/remove-known-host')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                //that.setState(foo => (json));
+            })
+            .catch(function(ex) {
+                console.log('parsing failed, URL bad, network down, or similar', ex);
+            });
+    };
+  
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+        <header>
+          <h1>Copy File</h1>
         </header>
+        <main>
+          <button onClick={this.copyFile}>Copy File</button>
+        </main>
+        <footer>
+          <p>&copy; by Sean Newman</p>
+        </footer>
       </div>
     );
   }
