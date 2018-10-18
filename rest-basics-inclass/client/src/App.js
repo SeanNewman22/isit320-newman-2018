@@ -5,12 +5,12 @@ import './App.css';
 
 class App extends Component {
     constructor() {
-        super();
-        this.state = {
-            file: 'File name will be placed here.',
-            status: 'waiting for server'
-        };
-    }
+    super();
+    this.state = {
+        file: 'unknown',
+        status: 'waiting'
+    };
+}
 
     queryServer = () => {
         const that = this;
@@ -30,20 +30,23 @@ class App extends Component {
     
 
     render() {
-        return (
-            <div className="App">
-                <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h2>Welcome to React</h2>
-                </div>
-
-                <p className="App-intro">
-                    state: {this.state.status} file: {this.state.file}
-                </p>
-                <button onClick={this.queryServer}>Bar</button>
+    return (
+        <div className="App">
+            <div className="App-header">
+                <img src={logo} className="App-logo" alt="logo"/>
+                <h2>Welcome to React</h2>
             </div>
-        );
-    }
+
+            <p className="App-intro">
+                state: {this.state.status}
+            </p>
+            <p className="App-intro">
+                file: {this.state.file}
+            </p>
+            <button onClick={this.bar}>Bar</button>
+        </div>
+    );
+}
 }
 
 export default App;
