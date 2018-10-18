@@ -20,6 +20,20 @@ describe('rest basic tests', function() {
         elfDebugEnzyme.getLast(wrapper, 'p', true);
         expect(wrapper.contains(unknown)).toEqual(true);
     });
+    
+    it('renders and reads paragraph text', () => {
+       const wrapper = shallow(<App />);
+       const unknownFile = <p className="App-intro">file: unknown</p>;
+       expect(wrapper.contains(unknownFile)).toBe(true);
+   });
+
+    it('renders state of File paragraph after button click', () => {
+       const wrapper = shallow(<App />);
+       const nineSign = <p className="App-intro">file: url-file.js</p>;
+       wrapper.find('#getFile').simulate('click');
+       expect(wrapper.contains(nineSign)).toBe(true);
+    });
+
 
 });
 

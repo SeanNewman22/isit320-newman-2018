@@ -27,7 +27,11 @@ class App extends Component {
             });
     };
     
-    
+    getFile = () => {
+       console.log('getFile called.');
+       this.setState({file: 'url-file.js'})
+    };
+
 
     render() {
     return (
@@ -44,6 +48,7 @@ class App extends Component {
                 file: {this.state.file}
             </p>
             <button onClick={this.bar}>Bar</button>
+            <button id='getFile' onClick={this.getFile}>Get File</button>
         </div>
     );
 }
