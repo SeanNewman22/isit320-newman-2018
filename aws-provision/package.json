@@ -10,7 +10,7 @@
     "devDependencies": {},
     "scripts": {
   "start": "nodemon ./bin/www",
-  "start-service": "node ./bin/www",
+  "start-service": "node ./bin/www"
     },
     "author": "Charlie Calvert",
     "license": "MIT"
