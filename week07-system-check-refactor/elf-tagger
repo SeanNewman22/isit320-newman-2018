@@ -36,8 +36,8 @@ function push_tag() {
   git commit -m "${TAG_STRING} $NOW"
   git push --set-upstream origin ${BRANCH}
 
-  #git tag -a "${TAG_VERSION}" -m "${TAG_STRING}"
-  #git push origin "${<WHAT GOES IN HERE TO GET THE TAG VERSION?>}"
+  git tag -a "${TAG_VERSION}" -m "${TAG_STRING}"
+  git push origin "${TAG_VERSION}"
 }
 
 push_tag
