@@ -1,0 +1,3 @@
+**/public/static/**
+public/service-worker.js
+precache-manifest.*.js
