@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 
+
 if [[ -z $2 ]]; then
     echo -e "You must pass in a commit message and the project name"
     exit
