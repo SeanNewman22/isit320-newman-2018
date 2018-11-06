@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
+import ElfHeader from './ElfHeader';
 
 class App extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
             allData: 'unknown'
         };
     }
-
 
     copyFile = () => {
         const that = this;
@@ -19,21 +18,22 @@ class App extends Component {
             })
             .then(function(json) {
                 console.log('parsed json', json.allData);
-                that.setState({allData: json.allData});
+                that.setState({ allData: json.allData });
             })
             .catch(function(ex) {
-                console.log('parsing failed, URL bad, network down, or similar', ex);
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
             });
     };
 
     render() {
-
         const radioWeb = (
             <div className="container">
                 <form onSubmit={this.handleSubmit}>
                     <fieldset>
                         <div className="elf-form-field">
-
                             <legend>Services</legend>
                             <input
                                 type="radio"
@@ -53,12 +53,15 @@ class App extends Component {
                                 id="elf-radio-version"
                                 onChange={this.handleChange}
                             />
-                            <label htmlFor="elf-radio-version">Version Info</label>
-
+                            <label htmlFor="elf-radio-version">
+                                Version Info
+                            </label>
                         </div>
 
                         <div className="form-group">
-                            <button type="submit" className="btn btn-primary">Run System Script</button>
+                            <button type="submit" className="btn btn-primary">
+                                Run System Script
+                            </button>
                         </div>
                     </fieldset>
                 </form>
@@ -67,13 +70,9 @@ class App extends Component {
 
         return (
             <div className="App">
-                <header>
-                    <h1>Copy File</h1>
-                </header>
+                <ElfHeader/>
                 <main>
-                    <section>
-                        {radioWeb}
-                    </section>
+                    <section>{radioWeb}</section>
                     <section>
                         <pre>{this.state.allData}</pre>
                     </section>
@@ -89,4 +88,3 @@ class App extends Component {
 }
 
 export default App;
-
