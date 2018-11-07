@@ -24,5 +24,24 @@ function deleteOld(){
     rm -v ${SERVER_DIR}/index.html
 }
 
-deleteOld
-copyNew
+function runAll(){
+    deleteOld
+    copyNew
+}
+
+while true; do
+    message "Menu"    
+    echo -e "$LIGHT_GREEN  a) Delete Old Files and Run Build"
+    echo -e "$LIGHT_GREEN  b) Only Build"
+    echo -e "$LIGHT_GREEN  c) Only Delete"
+    echo -e "$LIGHT_RED  x) Exit (You should source .bashrc when done)"
+    echo -e "\n$NC"
+    read -p "Please make a selection: " eotuyx
+    case $eotuyx in
+        [Aa]* ) runAll false; continue;;
+        [Bb]* ) copyNew; continue;;
+        [Cc]* ) deleteOld; continue;;
+        [XxQq]* ) break;;
+        * )  -e "\n$NC" + "Please answer with a, b, c or x (or q).";;
+    esac
+done
