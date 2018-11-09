@@ -55,7 +55,7 @@ const check = (request, response, next) => {
 
 router.use(check);
 
-router.get('/copy-file', (request, response) => {
+router.get('/CpuInfo', (request, response) => {
     //const result = { result: 'success'};
     //response.send(result);
 
