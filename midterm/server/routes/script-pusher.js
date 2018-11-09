@@ -55,7 +55,7 @@ const check = (request, response, next) => {
 
 router.use(check);
 
-router.get('/CpuInfo', (request, response) => {
+router.get('/run-script', (request, response) => {
     //const result = { result: 'success'};
     //response.send(result);
 
