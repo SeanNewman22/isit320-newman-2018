@@ -113,6 +113,42 @@ class App extends Component {
                             <label htmlFor="elf-radio-version">
                                 Version Info
                             </label>
+                            
+                            <input
+                                type="radio"
+                                name="app-choice"
+                                data-endpoint="0"
+                                value="uptime"
+                                id="elf-radio-uptime"
+                                onChange={this.handleChange}
+                            />
+                            <label htmlFor="elf-radio-uptime">
+                                Uptime
+                            </label>
+                        </div>
+
+                        <div className="form-group">
+                            <button type="submit" className="btn btn-primary">
+                                Run System Script
+                            </button>
+                        </div>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <div className="elf-form-field">
+                            <legend>Remote Services</legend>
+                            
+                            <input
+                                type="radio"
+                                name="app-choice"
+                                data-endpoint="0"
+                                value="uptime"
+                                id="elf-radio-uptime2"
+                                onChange={this.handleChange}
+                            />
+                            <label htmlFor="elf-radio-uptime2">
+                                Uptime
+                            </label>
                         </div>
 
                         <div className="form-group">
