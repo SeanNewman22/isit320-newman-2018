@@ -40,6 +40,7 @@ const copyFile = () => {
 };
 
 const scriptRunner = (script) => {
+    console.log("This is from scriptRunner")
     return new Promise(function(resolve, reject) {
         console.log('Run CPU info', process.env.SETUP_LINUXBOX);
 
