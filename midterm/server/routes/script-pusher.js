@@ -39,6 +39,41 @@ const copyFile = () => {
     });
 };
 
+const scriptRunner = (script) => {
+    return new Promise(function(resolve, reject) {
+        console.log('Run CPU info', process.env.SETUP_LINUXBOX);
+
+        const pushScript = spawn(process.env.SETUP_LINUXBOX + '/' + script);
+
+        pushScript.stdout.on('data', data => {
+            console.log(`child stdout:\n${data}`);
+            allData += 'PUSH-SCRIPT: ' + data;
+            //console.log('PUSH', data);
+        });
+
+        pushScript.stderr.on('data', data => {
+            console.log(`child stderr:\n${data}`);
+            allData += 'PUSH-SCRIPT: ' + data;
+            //console.error('PUSH', data);
+        });
+
+        pushScript.on('close', code => {
+            resolve({
+                result: 'success',
+                allData: allData,
+                code: code
+            });
+        });
+
+        pushScript.on('error', code => {
+            reject({
+                result: 'error',
+                code: code
+            });
+        });
+    });
+};
+
 const check = (request, response, next) => {
     console.log('REQUEST CHECK CALLED', request.query);
     const validOptions = ['CpuInfo', 'VersionCheck', 'uptime'];
@@ -56,12 +91,14 @@ const check = (request, response, next) => {
 router.use(check);
 
 router.get('/run-script', (request, response) => {
+    
+    allData = '';
     //const result = { result: 'success'};
     //response.send(result);
 
-    copyFile()
+    scriptRunner(request.query.script)
         .then(result => {
-            console.log(JSON.stringify(result, null, 4));
+            //console.log(JSON.stringify(result, null, 4));
             response.send(result);
         })
         .catch(err => {
