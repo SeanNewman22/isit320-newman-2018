@@ -101,7 +101,7 @@ class App extends Component {
                             <input
                                 type="radio"
                                 name="app-choice"
-                                data-endpoint="0"
+                                data-endpoint="1"
                                 value="uptime"
                                 id="elf-radio-uptime"
                                 onChange={this.handleChange}
@@ -125,7 +125,7 @@ class App extends Component {
                             <input
                                 type="radio"
                                 name="app-choice"
-                                data-endpoint="0"
+                                data-endpoint="1"
                                 value="uptime"
                                 id="elf-radio-uptime2"
                                 onChange={this.handleChange}
