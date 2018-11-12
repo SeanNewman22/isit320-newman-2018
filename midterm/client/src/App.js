@@ -67,23 +67,7 @@ class App extends Component {
         event.preventDefault();
     };
 
-    copyFile = () => {
-        const that = this;
-        fetch('/script-pusher/copy-file')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                console.log('parsed json', json.allData);
-                that.setState({ allData: json.allData });
-            })
-            .catch(function(ex) {
-                console.log(
-                    'parsing failed, URL bad, network down, or similar',
-                    ex
-                );
-            });
-    };
+    
 
     render() {
         const radioWeb = (
