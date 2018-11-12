@@ -92,7 +92,7 @@ const check = (request, response, next) => {
 router.use(check);
 
 router.get('/run-script', (request, response) => {
-    
+    'use strict';
     allData = '';
     //const result = { result: 'success'};
     //response.send(result);
