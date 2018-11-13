@@ -6,11 +6,11 @@ const hostAddress = '35.174.101.27';
 
 let allData = '';
 
-const runCpuInfo = (hostAddress, response) => {
+const runUptime = (hostAddress, response) => {
     var conn = new Client();
     conn.on('ready', function () {
         console.log('Client :: ready');
-        conn.exec('~/CpuInfo', function (err, stream) {
+        conn.exec('/usr/bin/uptime', function (err, stream) {
             if (err) throw err;
             stream
                 .on('close', function (code, signal) {
@@ -42,8 +42,8 @@ const runCpuInfo = (hostAddress, response) => {
     });
 };
 
-router.get('/call-cpu-info', (request, response) => {
-    runCpuInfo(hostAddress, response);
+router.get('/run-uptime', (request, response) => {
+    runUptime(hostAddress, response);
 });
 
 module.exports = router;
