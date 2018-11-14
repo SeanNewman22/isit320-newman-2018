@@ -89,12 +89,6 @@ class App extends Component {
         }
     };
 
-    handleSubmitRemote = (event) => {
-        this.setState({allData: ''});
-        console.log('A name was submitted: ', this.state);
-        this.runSshUptime();
-        event.preventDefault();
-    };
 
     render() {
         const radioWeb = (
