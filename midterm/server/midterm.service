@@ -12,6 +12,7 @@ User=ubuntu
 Group=ubuntu
 Environment=NODE_ENV=production
 Environment=MIDTERM_PORT=30035
+Environment=SETUP_LINUXBOX=/home/ubuntu/Git/JsObjects/Utilities/SetupLinuxBox
 
 [Install]
 WantedBy=multi-user.target
