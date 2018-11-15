@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ElfHeader from './ElfHeader';
+import RadioLocal from './RadioLocal';
 
 class App extends Component {
     constructor(props) {
@@ -91,90 +92,16 @@ class App extends Component {
 
 
     render() {
-        const radioWeb = (
-            <div className="container">
-                <form onSubmit={this.handleSubmit}>
-                    <fieldset>
-                        <div className="elf-form-field">
-                            <legend>Services</legend>
-                            <input
-                                type="radio"
-                                name="app-choice"
-                                data-endpoint="0"
-                                value="CpuInfo"
-                                id="elf-radio-cpu"
-                                onChange={this.handleChange}
-                            />
-                            <label htmlFor="elf-radio-cpu">CpuInfo</label>
 
-                            <input
-                                type="radio"
-                                name="app-choice"
-                                data-endpoint="0"
-                                value="VersionCheck"
-                                id="elf-radio-version"
-                                onChange={this.handleChange}
-                            />
-                            <label htmlFor="elf-radio-version">
-                                Version Info
-                            </label>
-                            
-                            <input
-                                type="radio"
-                                name="app-choice"
-                                data-endpoint="1"
-                                value="uptime"
-                                id="elf-radio-uptime"
-                                onChange={this.handleChange}
-                            />
-                            <label htmlFor="elf-radio-uptime">
-                                Uptime
-                            </label>
-                        </div>
-
-                        <div className="form-group">
-                            <button type="submit" className="btn btn-primary">
-                                Run System Script
-                            </button>
-                        </div>
-                    </fieldset>
-                    
-                    <fieldset>
-                        <div className="elf-form-field">
-                            <legend>Remote Services</legend>
-                            
-                            <input
-                                type="radio"
-                                name="app-choice"
-                                data-endpoint="1"
-                                value="uptime2"
-                                id="elf-radio-uptime2"
-                                onChange={this.handleChange}
-                            />
-                            <label htmlFor="elf-radio-uptime2">
-                                Uptime
-                            </label>
-                        </div>
-
-                        <div className="form-group">
-                            <button type="submit" className="btn btn-primary">
-                                Run System Script
-                            </button>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-        );
 
         return (
             <div className="App">
                 <ElfHeader/>
                 <main>
-                    <section>{radioWeb}</section>
+                    <RadioLocal />
                     <section>
                         <pre>{this.state.allData}</pre>
                     </section>
-                    <button onClick={this.runFoo}>Run Foo</button>
                 </main>
 
                 <footer>
