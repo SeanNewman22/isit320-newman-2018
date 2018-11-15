@@ -5,26 +5,31 @@ import ElfHeader from './ElfHeader';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.dataEndPoints = ['/script-pusher/run-script?script=', '/script-pusher/run-system-tool?script='];
+        this.dataEndPoints = [
+            '/script-pusher/run-script?script=',
+            '/script-pusher/run-system-tool?script='
+        ];
         this.state = {
             allData: '',
             selectedValue: '',
             endPointIndex: 0
         };
     }
-    
+
     runSshUptime = () => {
         const that = this;
         fetch('ssh-runner/run-uptime')
-            .then(function (response) {
+            .then(function(response) {
                 return response.json();
             })
-            .then(function (json) {
+            .then(function(json) {
                 console.log('JSON allData from server:', json.allData);
-                that.setState({allData: json.allData});
+                that.setState({ allData: json.allData });
             })
-            .catch(function (ex) {
-                console.log('parsing failed, error on server, URL bad, network down, or similar');
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, error on server, URL bad, network down, or similar'
+                );
                 console.log(JSON.stringify(ex, null, 4));
             });
     };
@@ -35,10 +40,10 @@ class App extends Component {
             return;
         }
         fetch(path + script)
-            .then(function (response) {
+            .then(function(response) {
                 return response.json();
             })
-            .then(function (json) {
+            .then(function(json) {
                 console.log('allData', json.allData);
                 console.log('result', json.result);
                 console.log('code', json.code);
@@ -57,14 +62,17 @@ class App extends Component {
                 } else {
                     info = json.allData;
                 }
-                that.setState({allData: info});
+                that.setState({ allData: info });
             })
-            .catch(function (ex) {
-                console.log('parsing failed, URL bad, network down, or similar', ex);
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
             });
     };
-    
-    handleChange = (event) => {
+
+    handleChange = event => {
         const selectedValue = event.target.value;
         const endPointIndex = event.target.getAttribute('data-endpoint');
         console.log('HANDLE CHANGE', selectedValue);
@@ -73,22 +81,23 @@ class App extends Component {
             selectedValue: selectedValue,
             endPointIndex: endPointIndex
         });
-    
     };
-    
-    handleSubmit = (event) => {
-        this.setState({allData: ''});
+
+    handleSubmit = event => {
+        this.setState({ allData: '' });
         console.log('A name was submitted: ', this.state);
-        if(this.state.selectedValue === 'uptime2'){
+        if (this.state.selectedValue === 'uptime2') {
             console.log('Going to ssh');
             this.runSshUptime();
             event.preventDefault();
-        } else{
-        this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
-        event.preventDefault();
+        } else {
+            this.runScript(
+                this.dataEndPoints[this.state.endPointIndex],
+                this.state.selectedValue
+            );
+            event.preventDefault();
         }
     };
-
 
     render() {
         const radioWeb = (
@@ -118,7 +127,7 @@ class App extends Component {
                             <label htmlFor="elf-radio-version">
                                 Version Info
                             </label>
-                            
+
                             <input
                                 type="radio"
                                 name="app-choice"
@@ -127,9 +136,7 @@ class App extends Component {
                                 id="elf-radio-uptime"
                                 onChange={this.handleChange}
                             />
-                            <label htmlFor="elf-radio-uptime">
-                                Uptime
-                            </label>
+                            <label htmlFor="elf-radio-uptime">Uptime</label>
                         </div>
 
                         <div className="form-group">
@@ -138,11 +145,11 @@ class App extends Component {
                             </button>
                         </div>
                     </fieldset>
-                    
+
                     <fieldset>
                         <div className="elf-form-field">
                             <legend>Remote Services</legend>
-                            
+
                             <input
                                 type="radio"
                                 name="app-choice"
@@ -151,9 +158,7 @@ class App extends Component {
                                 id="elf-radio-uptime2"
                                 onChange={this.handleChange}
                             />
-                            <label htmlFor="elf-radio-uptime2">
-                                Uptime
-                            </label>
+                            <label htmlFor="elf-radio-uptime2">Uptime</label>
                         </div>
 
                         <div className="form-group">
@@ -168,7 +173,7 @@ class App extends Component {
 
         return (
             <div className="App">
-                <ElfHeader/>
+                <ElfHeader />
                 <main>
                     <section>{radioWeb}</section>
                     <section>
@@ -186,4 +191,3 @@ class App extends Component {
 }
 
 export default App;
-

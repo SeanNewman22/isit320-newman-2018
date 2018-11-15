@@ -8,26 +8,26 @@ let allData = '';
 
 const runUptime = (hostAddress, response) => {
     var conn = new Client();
-    conn.on('ready', function () {
+    conn.on('ready', function() {
         console.log('Client :: ready');
-        conn.exec('~/uptime', function (err, stream) {
+        conn.exec('/usr/bin/uptime', function(err, stream) {
             if (err) throw err;
             stream
-                .on('close', function (code, signal) {
+                .on('close', function(code, signal) {
                     console.log(
                         'Stream :: close :: code: ' +
-                        code +
-                        ', signal: ' +
-                        signal
+                            code +
+                            ', signal: ' +
+                            signal
                     );
                     conn.end();
-                    response.send({result: 'success', allData: allData});
+                    response.send({ result: 'success', allData: allData });
                 })
-                .on('data', function (data) {
+                .on('data', function(data) {
                     console.log('STDOUT: ' + data);
                     allData += data;
                 })
-                .stderr.on('data', function (data) {
+                .stderr.on('data', function(data) {
                     console.log('STDERR: ' + data);
                     allData += data;
                 });
@@ -43,6 +43,7 @@ const runUptime = (hostAddress, response) => {
 };
 
 router.get('/run-uptime', (request, response) => {
+    allData = '';
     runUptime(hostAddress, response);
 });
 

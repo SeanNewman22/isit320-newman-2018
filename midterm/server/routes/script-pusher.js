@@ -4,8 +4,8 @@ const spawn = require('child_process').spawn;
 
 let allData = '';
 
-const scriptRunner = (script) => {
-    console.log("This is from scriptRunner");
+const scriptRunner = script => {
+    console.log('This is from scriptRunner');
     return new Promise(function(resolve, reject) {
         console.log('Run CPU info', process.env.SETUP_LINUXBOX);
 
@@ -40,10 +40,9 @@ const scriptRunner = (script) => {
     });
 };
 
-const runSystemTool = (script) => {
-    console.log("This is from runSystemTool");
+const runSystemTool = script => {
+    console.log('This is from runSystemTool');
     return new Promise(function(resolve, reject) {
-
         const pushScript = spawn('/usr/bin/' + script);
 
         pushScript.stdout.on('data', data => {
@@ -82,7 +81,11 @@ const check = (request, response, next) => {
         console.log('INSIDE REQUEST SCRIPT');
         if (!validOptions.includes(request.query.script)) {
             console.log('INSIDE REQUEST INVALID OPTION');
-            response.send({result: 'error', error: 'Invalid Option: ' + request.query.script, script: request.query.script});
+            response.send({
+                result: 'error',
+                error: 'Invalid Option: ' + request.query.script,
+                script: request.query.script
+            });
             return;
         }
     }
