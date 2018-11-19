@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import ElfHeader from './ElfHeader';
 
-class RadioLocal extends Component {
+class RadioRemote extends Component {
     constructor(props) {
         super(props);
         this.dataEndPoints = ['/script-pusher/run-script?script=', '/script-pusher/run-system-tool?script='];
@@ -13,42 +13,23 @@ class RadioLocal extends Component {
         };
     }
     
-    
-
-    runScript = (path, script) => {
+    runSshUptime = () => {
         const that = this;
-        if (!script) {
-            return;
-        }
-        fetch(path + script)
+        fetch('ssh-runner/run-uptime')
             .then(function (response) {
                 return response.json();
             })
             .then(function (json) {
-                console.log('allData', json.allData);
-                console.log('result', json.result);
-                console.log('code', json.code);
-                console.log('error', json.error);
-                let info = '';
-                if (json.result === 'error') {
-                    info = json.error;
-                } else if (script === 'CpuInfo') {
-                    var regex1 = RegExp('model name.*', 'g');
-                    let array1 = regex1.exec(json.allData);
-                    while (array1 !== null) {
-                        info += array1[0] + '\n';
-                        console.log(`Found ${array1[0]}.`);
-                        array1 = regex1.exec(json.allData);
-                    }
-                } else {
-                    info = json.allData;
-                }
-                that.setState({allData: info});
+                console.log('JSON allData from server:', json.allData);
+                that.setState({allData: json.allData});
             })
             .catch(function (ex) {
-                console.log('parsing failed, URL bad, network down, or similar', ex);
+                console.log('parsing failed, error on server, URL bad, network down, or similar');
+                console.log(JSON.stringify(ex, null, 4));
             });
     };
+
+    
     
     handleChange = (event) => {
         const selectedValue = event.target.value;
@@ -82,38 +63,17 @@ class RadioLocal extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <fieldset>
                         <div className="elf-form-field">
-                            <legend>Services</legend>
-                            <input
-                                type="radio"
-                                name="app-choice"
-                                data-endpoint="0"
-                                value="CpuInfo"
-                                id="elf-radio-cpu"
-                                onChange={this.handleChange}
-                            />
-                            <label htmlFor="elf-radio-cpu">CpuInfo</label>
-
-                            <input
-                                type="radio"
-                                name="app-choice"
-                                data-endpoint="0"
-                                value="VersionCheck"
-                                id="elf-radio-version"
-                                onChange={this.handleChange}
-                            />
-                            <label htmlFor="elf-radio-version">
-                                Version Info
-                            </label>
+                            <legend>Remote Services</legend>
                             
                             <input
                                 type="radio"
                                 name="app-choice"
                                 data-endpoint="1"
-                                value="uptime"
-                                id="elf-radio-uptime"
+                                value="uptime2"
+                                id="elf-radio-uptime2"
                                 onChange={this.handleChange}
                             />
-                            <label htmlFor="elf-radio-uptime">
+                            <label htmlFor="elf-radio-uptime2">
                                 Uptime
                             </label>
                         </div>
