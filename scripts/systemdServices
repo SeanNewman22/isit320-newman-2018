@@ -1,0 +1,5 @@
+#!/bin/bash
+
+LOCAL_IP=$(./get-ip.js)
+
+sudo nmap -p 30025-30045 ${LOCAL_IP}
