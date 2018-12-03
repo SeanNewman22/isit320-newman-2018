@@ -7,7 +7,7 @@ const hostAddress = '35.174.101.27';
 
 let allData = '';
 
-const runUptime = (hostAddress, response) => {
+const runUptime = (host, idFile, response) => {
     var conn = new Client();
     conn.on('ready', function () {
         console.log('Client :: ready');
@@ -34,11 +34,11 @@ const runUptime = (hostAddress, response) => {
                 });
         });
     }).connect({
-        host: hostAddress,
+        host: host,
         port: 22,
         username: 'ubuntu',
         privateKey: require('fs').readFileSync(
-            process.env.HOME + '/.ssh/ec2-320-inclass.pem'
+            process.env.HOME + '/.ssh/' + idFile
         )
     });
 };
