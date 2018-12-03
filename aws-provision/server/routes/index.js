@@ -4,8 +4,11 @@ const getAwsInstanceParams = require('./aws/GetAwsInstanceParams');
 const createInstance = require('./aws/AwsPromise');
 
 /* GET home page. */
-router.get('/', function(req, res, next) { 'use strict';
-  res.render('index', { title: 'server' });
+router.get('/', function(req, res) {
+    'use strict';
+    res.render('index', { title: 'System check refactor Server',
+        author: 'Sean Newman'
+    });
 });
 
 /* Set up a route called foo. */

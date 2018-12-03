@@ -105,5 +105,5 @@ class RadioRemote extends Component {
     }
 
 
-export default RadioLocal;
+export default RadioRemote;
 
