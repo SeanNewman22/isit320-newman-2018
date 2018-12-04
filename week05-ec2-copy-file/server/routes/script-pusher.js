@@ -2,13 +2,13 @@ var express = require('express');
 var router = express.Router();
 const spawn = require('child_process').spawn;
 
-let allData = "";
+let allData = '';
 
 const copyFile = () => {
 
     return new Promise(function (resolve, reject) {
 
-        console.log("Copy to EC2", process.env.SETUP_LINUXBOX);
+        console.log('Copy to EC2', process.env.SETUP_LINUXBOX);
 
         const pushScript = spawn('scp', [process.env.SETUP_LINUXBOX + '/CpuInfo', 'ec2-bc:/home/ubuntu']);
 
@@ -52,7 +52,7 @@ router.get('/copy-file', (request, response) => {
         .catch((err) => {
             console.log(err);
             response.send(err);
-        })
+        });
 });
 
 module.exports = router;
