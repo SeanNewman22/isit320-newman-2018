@@ -10,7 +10,7 @@ class App extends Component {
         };
     }
 
-    copyFile = () => {
+    handleSubmit = () => {
         const that = this;
         fetch('/script-pusher/copy-file')
             .then(function(response) {
