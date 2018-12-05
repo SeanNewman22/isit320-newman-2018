@@ -7,8 +7,8 @@ NC='\033[0m' # No Color
 
 # You should define the following environment variables.
 # Then run: source setup-environment-service
-export SYSTEMD_PROJECT_NAME=temp
-export SYSTEMD_DESCRIPTION="Temp Service"
+export SYSTEMD_PROJECT_NAME=ec2CopyFile
+export SYSTEMD_DESCRIPTION="EC2-Copy-File"
 export SYSTEMD_PORT="SERVER_PORT=30026"
 
 # This export does not need to be edited. It is derived from the lines above.

@@ -10,8 +10,8 @@ NC='\033[0m' # No Color
 
 # You should define the following environment variables.
 # Then run: source setup-environment-service
-export SYSTEMD_PROJECT_NAME=midterm
-export SYSTEMD_DESCRIPTION="Midterm Service"
+export SYSTEMD_PROJECT_NAME=systemCheckRefactor
+export SYSTEMD_DESCRIPTION="SystemCheckRefactor"
 export SYSTEMD_PORT="MIDTERM_PORT=30035"
 
 
