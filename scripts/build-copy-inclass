@@ -22,6 +22,7 @@ function deleteOld(){
     rm -v ${SERVER_DIR}/manifest.json
     rm -v ${SERVER_DIR}/favicon.ico
     rm -v ${SERVER_DIR}/index.html
+    rm -v ${SERVER_DIR}/asset-manifest.json
 }
 
 function runAll(){
