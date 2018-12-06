@@ -13,12 +13,15 @@ class RunRemote extends Component {
     
     runGetStarted = () => {
         const that = this;
-        fetch('/run-get-started')
+        fetch('/ssh-runner/run-get-started')
             .then(function(response) {
                 return response.json();
             })
             .then(function(json) {
                 console.log('parsed json', json);
+                that.setState({ 
+                    result: json.result,
+                    route: json.route });
                 //that.setState(foo => (json));
             })
             .catch(function(ex) {
@@ -28,12 +31,15 @@ class RunRemote extends Component {
     
     runUbuntuSetup = () => {
         const that = this;
-        fetch('/run-ubuntu-setup')
+        fetch('/ssh-runner/run-ubuntu-setup')
             .then(function(response) {
                 return response.json();
             })
             .then(function(json) {
                 console.log('parsed json', json);
+                that.setState({ 
+                    result: json.result,
+                    route: json.route });
                 //that.setState(foo => (json));
             })
             .catch(function(ex) {
@@ -51,7 +57,6 @@ class RunRemote extends Component {
                     <pre>{this.state.result}</pre>
                     <pre>{this.state.route}</pre>
                 </section>
-                <button onClick={this.createEducate}>Remove from KnownHost</button>
             </div>
         );
     }

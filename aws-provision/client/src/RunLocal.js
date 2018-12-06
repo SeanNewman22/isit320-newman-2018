@@ -13,12 +13,15 @@ class RunLocal extends Component {
     
     copyGetStarted = () => {
         const that = this;
-        fetch('/copy-get-started')
+        fetch('/script-pusher/copy-get-started')
             .then(function(response) {
                 return response.json();
             })
             .then(function(json) {
                 console.log('parsed json', json);
+                that.setState({ 
+                    result: json.result,
+                    route: json.route });
                 //that.setState(foo => (json));
             })
             .catch(function(ex) {
@@ -35,8 +38,6 @@ class RunLocal extends Component {
                     <pre>{this.state.result}</pre>
                     <pre>{this.state.route}</pre>
                 </section>
-                <button onClick={this.createEducate}>Run the GetStarted Script</button>
-                <button onClick={this.createEducate}>Remove from KnownHost</button>
             </div>
         );
     }

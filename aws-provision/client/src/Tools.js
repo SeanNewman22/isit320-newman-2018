@@ -22,6 +22,12 @@ class Tools extends Component {
             })
             .then(function(json) {
                 console.log('parsed json', json);
+                that.setState({ 
+                    result: json.result,
+                    route: json.route,
+                    instanceData: json.instanceData,
+                    allocationIds: json.allocationIds,
+                    regions: json.regions });
                 //that.setState(foo => (json));
             })
             .catch(function(ex) {
@@ -37,6 +43,12 @@ class Tools extends Component {
             })
             .then(function(json) {
                 console.log('parsed json', json);
+                that.setState({ 
+                    result: json.result,
+                    route: json.route,
+                    instanceData: json.instanceData,
+                    allocationIds: json.allocationIds,
+                    regions: json.regions });
                 //that.setState(foo => (json));
             })
             .catch(function(ex) {
@@ -46,12 +58,18 @@ class Tools extends Component {
     
     removeKnownHosts = () => {
         const that = this;
-        fetch('/remove-known-host')
+        fetch('/script-pusher/remove-known-host')
             .then(function(response) {
                 return response.json();
             })
             .then(function(json) {
                 console.log('parsed json', json);
+                that.setState({ 
+                    result: json.result,
+                    route: json.route,
+                    instanceData: json.instanceData,
+                    allocationIds: json.allocationIds,
+                    regions: json.regions });
                 //that.setState(foo => (json));
             })
             .catch(function(ex) {

@@ -3,7 +3,10 @@ import React, {Component} from 'react';
 import './App.css';
 
 import ElfHeader from './ElfHeader';
-import createAssociate from './CreateAssociate';
+import CreateAssociate from './CreateAssociate';
+import RunLocal from './RunLocal';
+import RunRemote from './RunRemote';
+import Tools from './Tools';
 
 class App extends Component {
     constructor(props) {
@@ -17,6 +20,8 @@ class App extends Component {
                 <main>
                     <CreateAssociate />
                     <RunLocal />
+                    <RunRemote />
+                    <Tools />
                 </main>
             </div>
         );

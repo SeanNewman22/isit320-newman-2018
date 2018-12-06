@@ -22,6 +22,12 @@ class CreateAssociate extends Component {
             })
             .then(function(json) {
                 console.log('parsed json', json);
+                that.setState({ 
+                    result: json.result,
+                    route: json.route,
+                    instanceData: json.instanceData,
+                    allocationIds: json.allocationIds,
+                    regions: json.regions });
                 //that.setState(foo => (json));
             })
             .catch(function(ex) {
@@ -37,6 +43,12 @@ class CreateAssociate extends Component {
             })
             .then(function(json) {
                 console.log('parsed json', json);
+                that.setState({ 
+                    result: json.result,
+                    route: json.route,
+                    instanceData: json.instanceData,
+                    allocationIds: json.allocationIds,
+                    regions: json.regions });
                 //that.setState(foo => (json));
             })
             .catch(function(ex) {
@@ -52,6 +64,12 @@ class CreateAssociate extends Component {
             })
             .then(function(json) {
                 console.log('parsed json', json);
+                that.setState({ 
+                    result: json.result,
+                    route: json.route,
+                    instanceData: json.instanceData,
+                    allocationIds: json.allocationIds,
+                    regions: json.regions });
                 //that.setState(foo => (json));
             })
             .catch(function(ex) {
