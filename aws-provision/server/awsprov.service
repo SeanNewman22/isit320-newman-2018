@@ -1,13 +1,13 @@
 [Unit]
-Description=Temp Service
+Description=AWS Prov Service
 
 [Service]
 ExecStart=/home/ubuntu/npm/bin/npm run start-service
-WorkingDirectory=/home/ubuntu/bin/temp
+WorkingDirectory=/home/ubuntu/bin/awsprov
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=temp
+SyslogIdentifier=awsprov
 User=ubuntu
 Group=ubuntu
 Environment=NODE_ENV=production
