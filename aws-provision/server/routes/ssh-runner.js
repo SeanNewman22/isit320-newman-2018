@@ -23,20 +23,14 @@ router.use(check);
 
 router.get('/run-get-started', function(request, response) {
     var message = { 'result': 'success',
-        'route': '',
-        'instanceData': '',
-        'allocationIds': '',
-        'regions': '' };
+        'route': '/run-get-started' };
     console.log('run get started called:\n' + JSON.stringify(message, null, 4));
     response.send(message);
 });
 
 router.get('/run-ubuntu-setup', function(request, response) {
     var message = { 'result': 'success',
-        'route': '',
-        'instanceData': '',
-        'allocationIds': '',
-        'regions': '' };
+        'route': '/run-ubuntu-setup' };
     console.log('run ubuntu setup called:\n' + JSON.stringify(message, null, 4));
     response.send(message);
 });

@@ -33,50 +33,50 @@ router.get('/foo', function(request, response) {
 
 router.get('/associate-elastic-ip', function(request, response) {
     var message = { 'result': 'success',
-        'route': '',
-        'instanceData': '',
-        'allocationIds': '',
-        'regions': '' };
+        'route': '/associate-elastic-ip',
+        'instanceData': 'myInstance',
+        'allocationIds': 'standard',
+        'regions': 'US-West' };
     console.log('associate elastic ip called:\n' + JSON.stringify(message, null, 4));
     response.send(message);
 });
 
 router.get('/create-educate', function(request, response) {
     var message = { 'result': 'success',
-        'route': '',
-        'instanceData': '',
-        'allocationIds': '',
-        'regions': '' };
+        'route': '/create-educate',
+        'instanceData': 'myInstance',
+        'allocationIds': 'standard',
+        'regions': 'US-West' };
     console.log('create educate called:\n' + JSON.stringify(message, null, 4));
     response.send(message);
 });
 
 router.get('/create-standard', function(request, response) {
     var message = { 'result': 'success',
-        'route': '',
-        'instanceData': '',
-        'allocationIds': '',
-        'regions': '' };
+        'route': '/create-standard',
+        'instanceData': 'myInstance',
+        'allocationIds': 'standard',
+        'regions': 'US-West' };
     console.log('create standard called:\n' + JSON.stringify(message, null, 4));
     response.send(message);
 });
 
 router.get('/get-instance-status', function(request, response) {
     var message = { 'result': 'success',
-        'route': '',
-        'instanceData': '',
-        'allocationIds': '',
-        'regions': '' };
+        'route': '/get-instance-status',
+        'instanceData': 'myInstance',
+        'allocationIds': 'standard',
+        'regions': 'US-West' };
     console.log('get instance status called:\n' + JSON.stringify(message, null, 4));
     response.send(message);
 });
 
 router.get('/reboot-instance', function(request, response) {
     var message = { 'result': 'success',
-        'route': '',
-        'instanceData': '',
-        'allocationIds': '',
-        'regions': '' };
+        'route': '/reboot-instance',
+        'instanceData': 'myInstance',
+        'allocationIds': 'standard',
+        'regions': 'US-West' };
     console.log('reboot instance called:\n' + JSON.stringify(message, null, 4));
     response.send(message);
 });

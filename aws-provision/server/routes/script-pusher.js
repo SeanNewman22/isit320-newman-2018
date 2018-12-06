@@ -21,20 +21,17 @@ router.use(check);
 
 router.get('/copy-get-started', function(request, response) {
     var message = { 'result': 'success',
-        'route': '',
-        'instanceData': '',
-        'allocationIds': '',
-        'regions': '' };
+        'route': '/copy-get-started' };
     console.log('copy get started called:\n' + JSON.stringify(message, null, 4));
     response.send(message);
 });
 
 router.get('/remove-known-host', function(request, response) {
     var message = { 'result': 'success',
-        'route': '',
-        'instanceData': '',
-        'allocationIds': '',
-        'regions': '' };
+        'route': '/remove-known-host',
+        'instanceData': 'myInstance',
+        'allocationIds': 'standard',
+        'regions': 'US-West' };
     console.log('remove known host called:\n' + JSON.stringify(message, null, 4));
     response.send(message);
 });

@@ -2,61 +2,22 @@ import React, {Component} from 'react';
 
 import './App.css';
 
+import ElfHeader from './ElfHeader';
+import createAssociate from './CreateAssociate';
+
 class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            file: 'File name will be placed here.',
-            status: 'waiting for server'
-        };
+    constructor(props) {
+        super(props);
     }
-
-    queryServer = () => {
-        const that = this;
-        fetch('/foo')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                console.log('parsed json', json);
-                that.setState(foo => (json));
-            })
-            .catch(function(ex) {
-                console.log('parsing failed, URL bad, network down, or similar', ex);
-            });
-    };
     
-    createEducate = () => {
-        const that = this;
-        fetch('/create-educate')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                console.log('parsed json', json);
-                //that.setState(foo => (json));
-            })
-            .catch(function(ex) {
-                console.log('parsing failed, URL bad, network down, or similar', ex);
-            });
-    };
-
     render() {
         return (
             <div className="App">
-                
-
-                <p className="App-intro">
-                    state: {this.state.status} file: {this.state.file}
-                </p>
-                <button onClick={this.queryServer}>Bar</button>
-                <button onClick={this.createEducate}>Create with AWS Educate Account</button>
-                <button onClick={this.createEducate}>Create with AWS Standard Account</button>
-                <button onClick={this.createEducate}>Associate Elastic Ip</button>
-                <hr/>
-                <button onClick={this.createEducate}>Copy the GetStarted Script</button>
-                <button onClick={this.createEducate}>Run the GetStarted Script</button>
-                <button onClick={this.createEducate}>Remove from KnownHost</button>
+                <ElfHeader/>
+                <main>
+                    <CreateAssociate />
+                    <RunLocal />
+                </main>
             </div>
         );
     }
