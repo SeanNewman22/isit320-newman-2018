@@ -2,14 +2,14 @@
 Description=Temp Service
 
 [Service]
-ExecStart=/home/bcuser/npm/bin/npm run start-service
-WorkingDirectory=/home/bcuser/bin/temp
+ExecStart=/home/ubuntu/npm/bin/npm run start-service
+WorkingDirectory=/home/ubuntu/bin/temp
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=temp
-User=bcuser
-Group=bcuser
+User=ubuntu
+Group=ubuntu
 Environment=NODE_ENV=production
 Environment=SERVER_PORT=30026
 
