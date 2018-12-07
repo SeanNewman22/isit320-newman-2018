@@ -40,7 +40,10 @@ describe('script-pusher-test.js tests', function() {
             .expect('Content-Type', /json/)
             .expect({
                 'result': 'success',
-                'route': '/remove-known-host'
+                'route': '/remove-known-host',
+                'instanceData': 'myInstance',
+                'allocationIds': 'standard',
+                'regions': 'US-West'
             })
             .expect(200, done);
     });
