@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res) {
     'use strict';
     res.render('index', {
-        title: 'System check refactor Server',
+        title: 'EC2 copy file Server',
         author: 'Sean Newman'
     });
 });

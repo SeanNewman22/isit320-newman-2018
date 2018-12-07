@@ -4,12 +4,15 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res) {
     'use strict';
-    res.render('index', { title: 'server' });
+    res.render('index', {
+        title: ' midterm-code Server',
+        author: 'Sean Newman'
+    });
 });
 
 router.get('/foo', (request, response) => {
-    'use strict';
-    response.send({ file: 'api.js', result: 'success', status: 'bar' });
+    const result = { result: 'success' };
+    response.send(result);
 });
 
 module.exports = router;
