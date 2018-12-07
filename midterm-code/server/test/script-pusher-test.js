@@ -5,7 +5,6 @@ const assert = require('assert');
 const app = require('../app'); //reference to you app.js file
 
 describe('Test script-pusher.js', function() {
-
     it('should call script-pusher/foo route', function(done) {
         request(app)
             .get('/script-pusher/foo')
@@ -26,14 +25,14 @@ describe('Test script-pusher.js', function() {
                 status: 'script-pusher works'
             });
     });
-    
+
     it('should check script-pusher/run-script Version Check', function(done) {
         request(app)
             .get('/script-pusher/run-script?script=VersionCheck')
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200)
-            .then((result) => {
+            .then(result => {
                 this.timeout(3000);
                 assert.equal(result.body.result, 'success');
                 assert.equal(result.body.code, '1');
@@ -42,14 +41,14 @@ describe('Test script-pusher.js', function() {
                 done();
             });
     });
-    
+
     it('should check script-pusher/run-script CPUInfo', function(done) {
         request(app)
             .get('/script-pusher/run-script?script=CpuInfo')
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200)
-            .then((result) => {
+            .then(result => {
                 this.timeout(3000);
                 assert.equal(result.body.result, 'success');
                 assert.equal(result.body.code, '1');
@@ -58,14 +57,14 @@ describe('Test script-pusher.js', function() {
                 done();
             });
     });
-    
+
     it('should check script-pusher/run-system-tool uptime', function(done) {
         request(app)
             .get('/script-pusher/run-sysytem-tool?script=uptime')
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200)
-            .then((result) => {
+            .then(result => {
                 this.timeout(3000);
                 assert.equal(result.body.result, 'success');
                 assert.equal(result.body.code, '1');
